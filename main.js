@@ -1,4 +1,4 @@
-class traveler {
+class Traveler {
     constructor (name, food, isHeatlthy) {
         /*name, which must be provided as a parameter to the constructor.
         an amount of food, with an initial value of 1.
@@ -26,7 +26,7 @@ class traveler {
     }   
 }
 
-class wagon {
+class Wagon {
     constructor (capacity, passengers) {
         /*a capacity, which must be provided to the constructor: 
         this is the maximum number of passengers a wagon can hold.
@@ -68,28 +68,7 @@ class wagon {
     }
 }
 
-//TESTER CODE PART ONE
-
-// let wagon = new Wagon(2)
-// // Create three travelers
-// let henrietta = new Traveler('Henrietta')
-// let juan = new Traveler('Juan')
-// let maude = new Traveler('Maude')
-// console.log(`Wagon Seat Count?: ${ wagon.getAvailableSeatCount() } – EXPECTED: 2. The wagon starts with 2 seats. We haven't added travelers to the wagon yet.`)
-// wagon.join(henrietta)
-// console.log(`Wagon Seat Count?: ${ wagon.getAvailableSeatCount() } – EXPECTED: 1. Henrietta just joined.`)
-// wagon.join(juan)
-// wagon.join(maude)  // There is no room for her!
-// console.log(`Wagon Seat Count?: ${ wagon.getAvailableSeatCount() } – EXPECTED: 0 – There is no room for Maude, but Juan was able to join.`)
-// henrietta.hunt()   // Henrietta goes in search of food.
-// juan.eat()         // Juan eats – as Juan does. 🤣
-// juan.eat()         // Juan has run out of food!
-// console.log(juan)
-// console.log(`Wagon Should Quarantine?: ${ wagon.shouldQuarantine() } – EXPECTED: true. Juan has run out of food and become unhealthy!`)
-// console.log(`Wagon's Total Food?: ${ wagon.totalFood() } – EXPECTED: 3.`)
-
-
-class Doctor extends traveler {
+class Doctor extends Traveler {
     heal () {
     //set the traveler's isHealthy property to true.
     this.isHeatlthy = true
@@ -97,37 +76,34 @@ class Doctor extends traveler {
 }
 
 
-class Hunter extends traveler {
+class Hunter extends Traveler {
 
     hunt () {
-        // Increase the hunter's food by 5. (A normal traveler gains only 2.)
+        // Increase the hunter's food by 5. (A normal traveler gains only 2
         this.food += 5
     }
 
     eat () {
         //Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat, 
         //they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy.
-        if (this.food < 2) {
-            this.food <= 1
-        }
-        else {
+        if (this.food <= 1) {
             return this.isHeatlthy = false
         }
-
     }
 
     giveFood(traveler, numOfFoodUnits){
         //Transfers numOfFoodUnits from the hunter to the traveler. 
         //If the hunter doesn't have enough food, then no food should be transferred.
-        this.numOfFoodUnits = this.food + this.numOfFoodUnits
+        this.numOfFoodUnits = numOfFoodUnits
         this.traveler = traveler
-        if (this.food < 5) {
+
+        if (numOfFoodUnits > 5) {
             this.food <= 1
         }
         else {
-            return this.isHeatlthy = false
+            
         }
-
+        console.log(numOfFoodUnits)
     }
 }
 
