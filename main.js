@@ -68,15 +68,11 @@ class Wagon {
     }
 }
 
-
-
-
-//extended classes starts here//
+////////////////////////////Extended classes start here/////////////////////////
 
 class Doctor extends Traveler {
     constructor (name, food, isHeatlthy) {
-        super(name, food, isHeatlthy)
-        
+        super(isHeatlthy)
     }
 
     heal (traveler) {
@@ -89,9 +85,7 @@ class Doctor extends Traveler {
 class Hunter extends Traveler {
     constructor (name, food, isHeatlthy) {
         super(name, food, isHeatlthy)
-        this.name = name
-        this.food = 1
-        this.isHeatlthy = true
+        this.food = 2
     }
 
     hunt () {
