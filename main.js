@@ -68,11 +68,20 @@ class Wagon {
     }
 }
 
+
+
+
+
+
+
+
+
+
 ////////////////////////////Extended classes start here/////////////////////////
 
 class Doctor extends Traveler {
     constructor (name, food, isHeatlthy) {
-        super(isHeatlthy)
+        super(name, food, isHeatlthy)
     }
 
     heal (traveler) {
@@ -96,8 +105,8 @@ class Hunter extends Traveler {
     eat () {
         /*Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat, 
         they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy*/
-        if (this.food >= 2) {
-            return this.isHeatlthy = true
+        if (this.food >= 0) {
+            this.isHeatlthy = false 
         } 
     }
 
@@ -105,10 +114,10 @@ class Hunter extends Traveler {
         /*Transfers numOfFoodUnits from the hunter to the traveler. 
         If the hunter doesn't have enough food, then no food should be transferred*/
         this.numOfFoodUnits = numOfFoodUnits
-        this.traveler = traveler
+    
 
-        if (numOfFoodUnits > 2) {
-            return this.food = numOfFoodUnits
+        if (this.food > 2) {
+           return this.food = numOfFoodUnits
         }
     }
 }
