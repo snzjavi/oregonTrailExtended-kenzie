@@ -70,15 +70,29 @@ class Wagon {
 
 
 
+
+//extended classes starts here//
+
 class Doctor extends Traveler {
-    heal () {
+    constructor (name, food, isHeatlthy) {
+        super(name, food, isHeatlthy)
+        
+    }
+
+    heal (traveler) {
     /*set the traveler's isHealthy property to true.*/
-    return this.isHeatlthy = true
+    this.isHeatlthy = true
     }
 }
 
 
 class Hunter extends Traveler {
+    constructor (name, food, isHeatlthy) {
+        super(name, food, isHeatlthy)
+        this.name = name
+        this.food = 1
+        this.isHeatlthy = true
+    }
 
     hunt () {
         /*Increase the hunter's food by 5. (A normal traveler gains only 2*/
