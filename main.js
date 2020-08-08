@@ -2,8 +2,8 @@ class Traveler {
     constructor (name, food, isHeatlthy) {
         /*name, which must be provided as a parameter to the constructor.
         an amount of food, with an initial value of 1.
-        an isHealthy property, with an initial value of true, 
-        which indicates whether a traveler is sick.*/        
+        an isHealthy property, with an initial value of true,
+        which indicates whether a traveler is sick.*/
         this.name = name
         this.food = 1
         this.isHeatlthy = true
@@ -11,10 +11,10 @@ class Traveler {
     hunt () {
         //hunt() – Increases the traveler's food by 2.
         this.food += 2
-    }   
+    }
     eat () {
-        /*Consumes 1 unit of the traveler's food. 
-        If the traveler doesn't have any food left to eat, 
+        /*Consumes 1 unit of the traveler's food.
+        If the traveler doesn't have any food left to eat,
         the traveler is no longer healthy (set isHealthy to false).*/
 
         if (this.food < 1) {
@@ -23,39 +23,39 @@ class Traveler {
         else {
             this.food -= 1
         }
-    }   
+    }
 }
 
 class Wagon {
     constructor (capacity, passengers) {
-        /*a capacity, which must be provided to the constructor: 
+        /*a capacity, which must be provided to the constructor:
         this is the maximum number of passengers a wagon can hold.
         a passengers list, which is initially an empty array.*/
         this.capacity = capacity
         this.passengers = []
-        
+
     }
     getAvailableSeatCount () {
-        /*Returns the number of empty seats, 
-        determined by the capacity set when the wagon was created, 
+        /*Returns the number of empty seats,
+        determined by the capacity set when the wagon was created,
         subtracted by the number of passengers currently on board.*/
         let AvailableSeatCount = this.capacity - this.passengers.length
         return AvailableSeatCount
-    }   
+    }
     join (traveler) {
-        /*Adds the traveler to the wagon if there is space. 
+        /*Adds the traveler to the wagon if there is space.
         If the wagon is already at maximum capacity, don't add them.*/
         if(this.getAvailableSeatCount() > 0) {
             this.passengers.push(traveler)
-            
+
         }
 
-    }   
+    }
     shouldQuarantine () {
         /*Returns true if there is at least one unhealthy person in the wagon. Return false if not.*/
         let healthyPassenger = this.passengers.some(traveler => traveler.isHeatlthy === false)
         return healthyPassenger
-          
+
     }
 
     totalFood () {
@@ -70,13 +70,6 @@ class Wagon {
 
 
 
-
-
-
-
-
-
-
 ////////////////////////////Extended classes start here/////////////////////////
 
 class Doctor extends Traveler {
@@ -86,7 +79,7 @@ class Doctor extends Traveler {
 
     heal (traveler) {
     /*set the traveler's isHealthy property to true.*/
-    this.isHeatlthy = true
+    traveler.isHeatlthy === true
     }
 }
 
@@ -101,24 +94,24 @@ class Hunter extends Traveler {
         /*Increase the hunter's food by 5. (A normal traveler gains only 2*/
         this.food += 5
     }
-    
+
     eat () {
-        /*Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat, 
+        /*Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat,
         they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy*/
-        if (this.food >= 0) {
-            this.isHeatlthy = false 
-        } 
+        this.food = 2
+
+        if (this.food += 2) {
+           this.isHeatlthy = true
+        }
+        else {
+            this.isHeatlthy = false
+        }
     }
 
-    giveFood(traveler, numOfFoodUnits){
-        /*Transfers numOfFoodUnits from the hunter to the traveler. 
+    giveFood(Traveler, numOfFoodUnits){
+        /*Transfers numOfFoodUnits from the hunter to the traveler.
         If the hunter doesn't have enough food, then no food should be transferred*/
-        this.numOfFoodUnits = numOfFoodUnits
-    
 
-        if (this.food > 2) {
-           return this.food = numOfFoodUnits
-        }
     }
 }
 
