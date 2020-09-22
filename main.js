@@ -79,7 +79,9 @@ class Doctor extends Traveler {
 
     heal (traveler) {
     /*set the traveler's isHealthy property to true.*/
-    traveler.isHeatlthy === true
+        if (traveler.isHealthy) {
+            traveler.isHealthy = true;
+        }
     }
 }
 
@@ -92,28 +94,34 @@ class Hunter extends Traveler {
 
     hunt () {
         /*Increase the hunter's food by 5. (A normal traveler gains only 2*/
-        this.food += 5
+        this.food = this.food + 5;
     }
 
     eat () {
         /*Consumes 2 units of food. If the hunter doesn't have 2 food when they are instructed to eat,
         they eat as much as they can (0 or 1 unit), but the hunter is no longer healthy*/
-        this.food = 2
 
-        if (this.food += 2) {
-           this.isHeatlthy = true
+
+
+        if (this.food >= 2) {
+            this.food -= 2
         }
         else {
+            this.food = 0
             this.isHeatlthy = false
         }
     }
 
-    giveFood(Traveler, numOfFoodUnits){
+    giveFood(traveler, numOfFoodUnits){
         /*Transfers numOfFoodUnits from the hunter to the traveler.
         If the hunter doesn't have enough food, then no food should be transferred*/
 
-    }
-}
+            if (this.food >= numOfFoodUnits) {
+                this.food -= numOfFoodUnits
+                traveler.food += numOfFoodUnits
+            }
+    };
+};
 
 
 //TESTER CODE PART TWO
